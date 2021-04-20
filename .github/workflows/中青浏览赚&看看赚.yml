@@ -1,9 +1,9 @@
-name: 中青看点
+name: 中青浏览赚&看看赚
 
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/15 0-15 * * *'
+     - cron: '1 1 * * *'
   watch:
     types: started
 
@@ -12,9 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-        YOUTH_HEADER: ${{ secrets.YOUTH_HEADER }}
-        YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
-        YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
+        YOUTH_START: ${{ secrets.YOUTH_START }}
+        YOUTH_LOOK: ${{ secrets.YOUTH_LOOK }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
