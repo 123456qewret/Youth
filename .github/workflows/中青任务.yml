@@ -1,4 +1,4 @@
-name: 中青任务
+name: 中青每日任务&转盘抽奖
 
 on:
   workflow_dispatch:
@@ -26,7 +26,7 @@ jobs:
         if: env.YOUTH_HEADER
         run: |
           npm install
-      - name: '运行 【中青看点任务】'
+      - name: '运行 【中青每日任务&转盘抽奖】'
         if: env.YOUTH_HEADER
         run: |
           node youth.js
