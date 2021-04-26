@@ -332,12 +332,12 @@ function CardStatus() {
     $.get(kdHost('WebApi/PunchCard/getMainData?&' + cookie), async(error, resp, data) =>{
       punchcard = JSON.parse(data);
       if (punchcard.code == 1) {
-        if (punchcard.data.user.status == 0 && $.time("HH") > "08") {
+        if (punchcard.data.user.status == 0 && $.time("HH") >= "08") {
           await punchCard()
         } else if (punchcard.data.user.status == 1) {
            $.log("每日打卡已报名，请每天早晨"+cardTime+"点运行打卡");
           detail += `【打卡报名】🔔 待明早${cardTime}点打卡\n`
-        } else if (punchcard.data.user.status == 3&&$.time("HH") > "05"&&$.time("HH") < "08") {
+        } else if (punchcard.data.user.status == 3&&$.time("HH") >= "05"&&$.time("HH") < "08") {
           $.log("打卡时间已到，去打卡");
           await endCard()
         } else if (punchcard.data.user.status == 0) {
