@@ -3,7 +3,7 @@ name: 中青每日任务&转盘抽奖
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/15 * * * *'
+     - cron: '* */2 * * *'
   watch:
     types: started
 
